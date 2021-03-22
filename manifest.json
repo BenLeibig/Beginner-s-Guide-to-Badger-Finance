@@ -1,0 +1,22 @@
+{ 
+	"name":"Badger Beginner Tutorial", 
+	"short_name":"Badger Tutorial", 
+	"start_url":"index.html", 
+	"display":"standalone", 
+	"background_color":"#181818", 
+	"theme_color":"#F2A627", 
+	"scope": ".", 
+	"description":"This is beginner's tutorial to get started with Badger Finance.", 
+	"icons":[ 
+	{ 
+	"src":"images/badgerOrangebg.png",					 
+	"sizes":"192x192", 
+	"type":"image/png"
+	}, 
+	{ 
+	"src":"images/badgerOrangebg.png", 
+	"sizes":"512x512", 
+	"type":"image/png"
+	} 
+] 
+}
