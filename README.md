@@ -1,0 +1,2 @@
+# Beginner-s-Guide-to-Badger-Finance
+A beginner's guide to Badger Finance. This project will help crypto beginners get up and running with Badger. My goal is to simplify understanding of Badger for the average person, and to make crypto as accessible as possible. I will be making some UI components to help explain Badger and get people up and running with Badger without feeling intimidated by all the crypto slang. 
