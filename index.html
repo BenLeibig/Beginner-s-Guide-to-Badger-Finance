@@ -13,17 +13,111 @@
         <!-- Manifest File link -->
         <link rel="manifest" href="manifest.json"> 
         <link rel="icon" href="images/badgerOrangebg.png">
+        <link rel="stylesheet" href="style.css">
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+        <script src="sweetalert2.all.min.js"></script>
+        <!-- Optional: include a polyfill for ES6 Promises for IE11 -->
+        <script src="//cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.js"></script>
         </head> 
         
         <body> 
-            <h1>Badger Know How Goes Here</h1> 
+            <h1>Welcome to Badger Finance</h1>
+            <div id="backImage"></div>
             
-            <p> 
-                You will learn how to use Badger Finance. 
-            </p> 
-            
+            <script>
+            //Chaining modals
+            Swal.mixin({
+            confirmButtonText: 'Next &rarr;',
+            showCancelButton: false,
+            progressSteps: ['1', '2', '3', '4']
+            }).queue([
+            {
+                title: 'What is Badger Finance?',
+                text: 'Badger Finance is a community DAO, focused on bringing Bitcoin to DeFi. Click next to learn more.',
+                width: 600,
+                padding: '2em',
+                backdrop: `
+                url("/images/badgerWhiteText.png")
+                top
+                no-repeat
+            `
+            },
+            {
+                title: 'What is DAO?',
+                text: 'A decentralized autonomous organization (DAO), sometimes labeled a decentralized autonomous corporation (DAC),[a] is an organization represented by rules encoded as a computer program that is transparent, controlled by the organization members and not influenced by a central government.',
+                width: 600,
+                padding: '2em',
+                backdrop: `
+                url("/images/badgerWhiteText.png")
+                top
+                no-repeat
+            `
+            },
+            {
+                title: 'What is DeFi?',
+                text: 'DeFi is short for “decentralized finance,” an umbrella term for a variety of financial applications in cryptocurrency or blockchain geared toward disrupting financial intermediaries. ... DeFi is distinct because it expands the use of blockchain from simple value transfer to more complex financial use cases.',
+                width: 600,
+                padding: '2em',
+                backdrop: `
+                url("/images/badgerWhiteText.png")
+                top
+                no-repeat
+            `
+            },
+            {
+                title: 'What is a Yield Aggrator?',
+                text: 'Yield Aggregators playing a key role in the yield farming economy by leveraging different DeFi protocols and strategies to maximize user profits. The yield farming process usually requires you to lock up or stake funds, providing variable or fixed ROI in return.',
+                width: 600,
+                padding: '2em',
+                backdrop: `
+                url("/images/badgerWhiteText.png")
+                top
+                no-repeat
+            `
+            },
+            ]).then((result) => {
+            if (result.value) {
+                const answers = JSON.stringify(result.value)
+                Swal.fire({
+                title: 'All done!',
+                icon: 'success',
+                confirmButtonText: 'Long Live DeFI!',
+                backdrop: `
+                url("/images/badgerWhiteText.png")
+                top
+                no-repeat
+            `
+                })
+                
+            }
+            let img = document.createElement("img");
+            img.src = "./images/badgerNoHide.jpg";
+            let src = document.getElementById("backImage");
+            src.appendChild(img); 
+            })
+              
+            </script>           
+
             <script> 
-                // Script for Service Worker 
-            </script> 
+                window.addEventListener('load', () => { 
+                registerSW(); 
+                }); 
+            
+                // Register the Service Worker 
+                async function registerSW() { 
+                if ('serviceWorker' in navigator) { 
+                    try { 
+                    await navigator 
+                            .serviceWorker 
+                            .register('serviceworker.js'); 
+                    } 
+                    catch (e) { 
+                    console.log('SW registration failed'); 
+                    } 
+                } 
+                } 
+            </script>
+            
+            
         </body> 
 </html>
